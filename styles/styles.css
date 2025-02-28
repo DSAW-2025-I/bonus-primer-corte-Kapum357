@@ -3,3 +3,229 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 90%;
+    width: 600px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.todo-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#taskInput {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+#taskInput:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+button {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+}
+
+.todo-item span {
+    flex: 1;
+    word-break: break-word;
+}
+
+.todo-item.completed {
+    background-color: #e0e0e0;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.todo-item button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    background-color: #f44336;
+    font-size: 14px;
+}
+
+.todo-item button:hover {
+    background-color: #da190b;
+}
+
+.task-checkbox {
+    margin-right: 10px;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+    .container {
+        margin: 1rem auto;
+        padding: 15px;
+    }
+
+    .todo-input {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #taskInput {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .todo-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 15px 10px;
+        margin-bottom: 12px;
+    }
+
+    .todo-item button {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    /* Additional improvements */
+    #taskInput, button {
+        min-height: 48px; /* Improve touch targets */
+    }
+    
+    .task-checkbox {
+        height: 22px;
+        width: 22px;
+        margin-bottom: 8px;
+    }
+}
+
+/* Updated Tablet adjustments to cover full range */
+@media screen and (min-width: 481px) and (max-width: 1023px) {
+    .container {
+        width: 85%;
+        max-width: 700px;
+    }
+
+    .todo-item {
+        padding: 12px;
+    }
+    
+    /* Improve touchability on tablets */
+    .todo-item button {
+        padding: 10px 18px;
+        min-height: 44px;
+    }
+    
+    .task-checkbox {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .todo-item {
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+    }
+}
+
+/* Desktop optimizations (new) */
+@media screen and (min-width: 1024px) {
+    .container {
+        margin: 3rem auto;
+        padding: 30px;
+        max-width: 800px;
+    }
+    
+    /* Smoother hover animations on desktop */
+    .todo-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .todo-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    button {
+        transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    
+    button:hover {
+        transform: scale(1.03);
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .todo-item {
+        transition: none;
+    }
+}
